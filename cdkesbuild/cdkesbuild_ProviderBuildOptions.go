@@ -39,8 +39,6 @@ type ProviderBuildOptions struct {
 	GlobalName *string `field:"optional" json:"globalName" yaml:"globalName"`
 	// Documentation: https://esbuild.github.io/api/#ignore-annotations.
 	IgnoreAnnotations *bool `field:"optional" json:"ignoreAnnotations" yaml:"ignoreAnnotations"`
-	// Documentation: https://esbuild.github.io/api/#incremental.
-	Incremental *bool `field:"optional" json:"incremental" yaml:"incremental"`
 	// Documentation: https://esbuild.github.io/api/#inject.
 	Inject *[]*string `field:"optional" json:"inject" yaml:"inject"`
 	// Documentation: https://esbuild.github.io/api/#jsx.
