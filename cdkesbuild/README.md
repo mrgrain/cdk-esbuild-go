@@ -50,10 +50,10 @@ Use `TypeScriptCode` as the `code` of a [lambda function](https://docs.aws.amazo
 // Example automatically generated from non-compiling source. May contain errors.
 bundledCode := cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"))
 
-fn := lambda.NewFunction(stack, jsii.String("MyFunction"), &functionProps{
-	runtime: lambda.runtime.nODEJS_18_X,
-	handler: jsii.String("index.handler"),
-	code: bundledCode,
+fn := lambda.NewFunction(stack, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime.nODEJS_18_X,
+	Handler: jsii.String("index.handler"),
+	Code: bundledCode,
 })
 ```
 
@@ -66,16 +66,16 @@ Use `TypeScriptSource` as one of the `sources` of a [static website deployment](
 ```go
 websiteBundle := cdkesbuild.NewTypeScriptSource(jsii.String("src/index.tsx"))
 
-websiteBucket := s3.NewBucket(stack, jsii.String("WebsiteBucket"), &bucketProps{
-	autoDeleteObjects: jsii.Boolean(true),
-	publicReadAccess: jsii.Boolean(true),
-	removalPolicy: cdk.removalPolicy_DESTROY,
-	websiteIndexDocument: jsii.String("index.html"),
+websiteBucket := s3.NewBucket(stack, jsii.String("WebsiteBucket"), &BucketProps{
+	AutoDeleteObjects: jsii.Boolean(true),
+	PublicReadAccess: jsii.Boolean(true),
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	WebsiteIndexDocument: jsii.String("index.html"),
 })
 
-s3deploy.NewBucketDeployment(stack, jsii.String("DeployWebsite"), &bucketDeploymentProps{
-	destinationBucket: websiteBucket,
-	sources: []iSource{
+s3deploy.NewBucketDeployment(stack, jsii.String("DeployWebsite"), &BucketDeploymentProps{
+	DestinationBucket: websiteBucket,
+	Sources: []iSource{
 		websiteBundle,
 	},
 })
@@ -92,17 +92,17 @@ Synthetics runs a canary to produce traffic to an application for monitoring pur
 > You may need to update your source code when upgrading to a newer version of this alpha package.
 
 ```go
-bundledCode := cdkesbuild.NewTypeScriptCode(jsii.String("src/canary.ts"), &typeScriptCodeProps{
-	buildOptions: &buildOptions{
-		outdir: jsii.String("nodejs/node_modules"),
+bundledCode := cdkesbuild.NewTypeScriptCode(jsii.String("src/canary.ts"), &TypeScriptCodeProps{
+	BuildOptions: &buildOptions{
+		Outdir: jsii.String("nodejs/node_modules"),
 	},
 })
 
-canary := synthetics.NewCanary(stack, jsii.String("MyCanary"), &canaryProps{
-	runtime: synthetics.runtime_SYNTHETICS_NODEJS_PUPPETEER_3_2(),
-	test: synthetics.test.custom(&customTestOptions{
-		code: bundledCode,
-		handler: jsii.String("index.handler"),
+canary := synthetics.NewCanary(stack, jsii.String("MyCanary"), &CanaryProps{
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_2(),
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: bundledCode,
+		Handler: jsii.String("index.handler"),
 	}),
 })
 ```
@@ -176,14 +176,14 @@ Please refer to the [`EsbuildSource`](API.md#esbuildsource) reference for a comp
 ```go
 // Use the standard Node.js algorithm to detect a locally installed package
 // Use the standard Node.js algorithm to detect a locally installed package
-cdkesbuild.NewEsbuildProvider(&esbuildProviderProps{
-	esbuildModulePath: cdkesbuild.EsbuildSource.nodeJs(),
+cdkesbuild.NewEsbuildProvider(&EsbuildProviderProps{
+	EsbuildModulePath: cdkesbuild.EsbuildSource_NodeJs(),
 })
 
 // Provide an explicit path
 // Provide an explicit path
-cdkesbuild.NewEsbuildProvider(&esbuildProviderProps{
-	esbuildModulePath: jsii.String("/home/user/node_modules/esbuild/lib/main.js"),
+cdkesbuild.NewEsbuildProvider(&EsbuildProviderProps{
+	EsbuildModulePath: jsii.String("/home/user/node_modules/esbuild/lib/main.js"),
 })
 ```
 
@@ -198,10 +198,10 @@ For an AWS CDK app with many instances of `TypeScriptCode` etc. it would be anno
 Luckily, the default can be changed for all usages per app:
 
 ```go
-customModule := cdkesbuild.NewEsbuildProvider(&esbuildProviderProps{
-	esbuildModulePath: cdkesbuild.EsbuildSource.globalPaths(),
+customModule := cdkesbuild.NewEsbuildProvider(&EsbuildProviderProps{
+	EsbuildModulePath: cdkesbuild.EsbuildSource_GlobalPaths(),
 })
-cdkesbuild.EsbuildProvider.overrideDefaultProvider(customModule)
+cdkesbuild.EsbuildProvider_OverrideDefaultProvider(customModule)
 ```
 
 ### Customizing the Esbuild API
@@ -224,12 +224,12 @@ var myCustomBuildProvider iBuildProvider
 var myCustomTransformProvider iTransformProvider
 
 
-cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &typeScriptCodeProps{
-	buildProvider: myCustomBuildProvider,
+cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &TypeScriptCodeProps{
+	BuildProvider: myCustomBuildProvider,
 })
 
-cdkesbuild.NewInlineTypeScriptCode(jsii.String("let x: number = 1"), &transformerProps{
-	transformProvider: myCustomTransformProvider,
+cdkesbuild.NewInlineTypeScriptCode(jsii.String("let x: number = 1"), &TransformerProps{
+	TransformProvider: myCustomTransformProvider,
 })
 ```
 
@@ -240,14 +240,14 @@ This is the same as setting the `ESBUILD_BINARY_PATH` environment variable.
 Defining the `esbuildBinaryPath` prop takes precedence.
 
 ```go
-buildProvider := cdkesbuild.NewEsbuildProvider(&esbuildProviderProps{
-	esbuildBinaryPath: jsii.String("path/to/esbuild/binary"),
+buildProvider := cdkesbuild.NewEsbuildProvider(&EsbuildProviderProps{
+	EsbuildBinaryPath: jsii.String("path/to/esbuild/binary"),
 })
 
 // This will use a different esbuild binary
 // This will use a different esbuild binary
-cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &typeScriptCodeProps{
-	buildProvider: buildProvider,
+cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &TypeScriptCodeProps{
+	BuildProvider: BuildProvider,
 })
 ```
 
@@ -257,14 +257,14 @@ The Node.js module discovery algorithm will normally be used to find the *esbuil
 It can be useful to use specify a different module path, for example if a globally installed package should be used instead of a local version.
 
 ```go
-buildProvider := cdkesbuild.NewEsbuildProvider(&esbuildProviderProps{
-	esbuildModulePath: jsii.String("/home/user/node_modules/esbuild/lib/main.js"),
+buildProvider := cdkesbuild.NewEsbuildProvider(&EsbuildProviderProps{
+	EsbuildModulePath: jsii.String("/home/user/node_modules/esbuild/lib/main.js"),
 })
 
 // This will use a different esbuild module
 // This will use a different esbuild module
-cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &typeScriptCodeProps{
-	buildProvider: buildProvider,
+cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &TypeScriptCodeProps{
+	BuildProvider: BuildProvider,
 })
 ```
 
@@ -292,11 +292,11 @@ func (this *customEsbuild) transformSync(code *string, options transformOptions)
 
 // These will use the custom implementation
 // These will use the custom implementation
-cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &typeScriptCodeProps{
-	buildProvider: NewCustomEsbuild(),
+cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &TypeScriptCodeProps{
+	BuildProvider: NewCustomEsbuild(),
 })
-cdkesbuild.NewInlineTypeScriptCode(jsii.String("let x: number = 1"), &transformerProps{
-	transformProvider: NewCustomEsbuild(),
+cdkesbuild.NewInlineTypeScriptCode(jsii.String("let x: number = 1"), &TransformerProps{
+	TransformProvider: NewCustomEsbuild(),
 })
 ```
 
@@ -317,9 +317,9 @@ You can change the default for both APIs at once or set a different implementati
 ```go
 myCustomEsbuildProvider := NewMyCustomEsbuildProvider()
 
-cdkesbuild.EsbuildProvider.overrideDefaultProvider(myCustomEsbuildProvider)
-cdkesbuild.EsbuildProvider.overrideDefaultBuildProvider(myCustomEsbuildProvider)
-cdkesbuild.EsbuildProvider.overrideDefaultTransformationProvider(myCustomEsbuildProvider)
+cdkesbuild.EsbuildProvider_OverrideDefaultProvider(myCustomEsbuildProvider)
+cdkesbuild.EsbuildProvider_OverrideDefaultBuildProvider(myCustomEsbuildProvider)
+cdkesbuild.EsbuildProvider_OverrideDefaultTransformationProvider(myCustomEsbuildProvider)
 
 // This will use the custom provider without the need to define it as a prop
 // This will use the custom provider without the need to define it as a prop
@@ -373,8 +373,8 @@ Build and Transform interfaces are relatively stable across *esbuild* versions.
 However if any incompatibilities occur, `buildOptions` / `transformOptions` can be cast to `any`:
 
 ```go
-bundledCode := cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &typeScriptCodeProps{
-	buildOptions: map[string]*string{
+bundledCode := cdkesbuild.NewTypeScriptCode(jsii.String("src/handler.ts"), &TypeScriptCodeProps{
+	BuildOptions: map[string]*string{
 		"unsupportedOption": jsii.String("value"),
 	},
 })
