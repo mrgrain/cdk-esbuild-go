@@ -1,4 +1,3 @@
-// CDK constructs for esbuild, an extremely fast JavaScript bundler
 package cdkesbuild
 
 
