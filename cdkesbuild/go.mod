@@ -1,4 +1,4 @@
-module github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v4
+module github.com/mrgrain/cdk-esbuild-go/cdkesbuild
 
 go 1.18
 
