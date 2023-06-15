@@ -2,7 +2,7 @@ package cdkesbuild
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/jsii"
+	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v4/jsii"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
