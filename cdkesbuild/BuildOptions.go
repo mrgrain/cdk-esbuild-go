@@ -26,6 +26,8 @@ type BuildOptions struct {
 	Define *map[string]*string `field:"optional" json:"define" yaml:"define"`
 	// Documentation: https://esbuild.github.io/api/#drop.
 	Drop *[]*string `field:"optional" json:"drop" yaml:"drop"`
+	// Documentation: https://esbuild.github.io/api/#drop-labels.
+	DropLabels *[]*string `field:"optional" json:"dropLabels" yaml:"dropLabels"`
 	// Documentation: https://esbuild.github.io/api/#entry-names.
 	EntryNames *string `field:"optional" json:"entryNames" yaml:"entryNames"`
 	// Documentation: https://esbuild.github.io/api/#external.
@@ -56,6 +58,8 @@ type BuildOptions struct {
 	KeepNames *bool `field:"optional" json:"keepNames" yaml:"keepNames"`
 	// Documentation: https://esbuild.github.io/api/#legal-comments.
 	LegalComments *string `field:"optional" json:"legalComments" yaml:"legalComments"`
+	// Documentation: https://esbuild.github.io/api/#line-limit.
+	LineLimit *float64 `field:"optional" json:"lineLimit" yaml:"lineLimit"`
 	// Documentation: https://esbuild.github.io/api/#loader.
 	Loader *map[string]*string `field:"optional" json:"loader" yaml:"loader"`
 	// Documentation: https://esbuild.github.io/api/#log-level.
@@ -122,6 +126,8 @@ type BuildOptions struct {
 	TreeShaking *bool `field:"optional" json:"treeShaking" yaml:"treeShaking"`
 	// Documentation: https://esbuild.github.io/api/#tsconfig.
 	Tsconfig *string `field:"optional" json:"tsconfig" yaml:"tsconfig"`
+	// Documentation: https://esbuild.github.io/api/#tsconfig-raw.
+	TsconfigRaw interface{} `field:"optional" json:"tsconfigRaw" yaml:"tsconfigRaw"`
 	// Documentation: https://esbuild.github.io/api/#write.
 	Write *bool `field:"optional" json:"write" yaml:"write"`
 }

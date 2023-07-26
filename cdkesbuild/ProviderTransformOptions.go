@@ -2,6 +2,7 @@ package cdkesbuild
 
 
 type ProviderTransformOptions struct {
+	// Documentation: https://esbuild.github.io/api/#banner.
 	Banner *string `field:"optional" json:"banner" yaml:"banner"`
 	// Documentation: https://esbuild.github.io/api/#charset.
 	Charset *string `field:"optional" json:"charset" yaml:"charset"`
@@ -11,6 +12,9 @@ type ProviderTransformOptions struct {
 	Define *map[string]*string `field:"optional" json:"define" yaml:"define"`
 	// Documentation: https://esbuild.github.io/api/#drop.
 	Drop *[]*string `field:"optional" json:"drop" yaml:"drop"`
+	// Documentation: https://esbuild.github.io/api/#drop-labels.
+	DropLabels *[]*string `field:"optional" json:"dropLabels" yaml:"dropLabels"`
+	// Documentation: https://esbuild.github.io/api/#footer.
 	Footer *string `field:"optional" json:"footer" yaml:"footer"`
 	// Documentation: https://esbuild.github.io/api/#format.
 	Format *string `field:"optional" json:"format" yaml:"format"`
@@ -34,6 +38,9 @@ type ProviderTransformOptions struct {
 	KeepNames *bool `field:"optional" json:"keepNames" yaml:"keepNames"`
 	// Documentation: https://esbuild.github.io/api/#legal-comments.
 	LegalComments *string `field:"optional" json:"legalComments" yaml:"legalComments"`
+	// Documentation: https://esbuild.github.io/api/#line-limit.
+	LineLimit *float64 `field:"optional" json:"lineLimit" yaml:"lineLimit"`
+	// Documentation: https://esbuild.github.io/api/#loader.
 	Loader *string `field:"optional" json:"loader" yaml:"loader"`
 	// Documentation: https://esbuild.github.io/api/#log-level.
 	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
@@ -61,6 +68,7 @@ type ProviderTransformOptions struct {
 	Pure *[]*string `field:"optional" json:"pure" yaml:"pure"`
 	// Documentation: https://esbuild.github.io/api/#mangle-props.
 	ReserveProps interface{} `field:"optional" json:"reserveProps" yaml:"reserveProps"`
+	// Documentation: https://esbuild.github.io/api/#sourcefile.
 	Sourcefile *string `field:"optional" json:"sourcefile" yaml:"sourcefile"`
 	// Documentation: https://esbuild.github.io/api/#sourcemap.
 	Sourcemap interface{} `field:"optional" json:"sourcemap" yaml:"sourcemap"`
@@ -74,6 +82,7 @@ type ProviderTransformOptions struct {
 	Target interface{} `field:"optional" json:"target" yaml:"target"`
 	// Documentation: https://esbuild.github.io/api/#tree-shaking.
 	TreeShaking *bool `field:"optional" json:"treeShaking" yaml:"treeShaking"`
+	// Documentation: https://esbuild.github.io/api/#tsconfig-raw.
 	TsconfigRaw interface{} `field:"optional" json:"tsconfigRaw" yaml:"tsconfigRaw"`
 }
 
