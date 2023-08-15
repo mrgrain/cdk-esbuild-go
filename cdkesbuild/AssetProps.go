@@ -22,6 +22,8 @@ type AssetProps struct {
 	//
 	// Configure the default `EsbuildProvider` for more options or
 	// provide a custom `IBuildProvider` as an escape hatch.
+	// Default: new EsbuildProvider().
+	//
 	BuildProvider IBuildProvider `field:"optional" json:"buildProvider" yaml:"buildProvider"`
 	// Copy additional files to the code [asset staging directory](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.AssetStaging.html#absolutestagedpath), before the build runs. Files copied like this will be overwritten by esbuild if they share the same name as any of the outputs.
 	//

@@ -12,6 +12,8 @@ type TransformerProps struct {
 	//
 	// Configure the default `EsbuildProvider` for more options or
 	// provide a custom `ITransformProvider` as an escape hatch.
+	// Default: new DefaultEsbuildProvider().
+	//
 	TransformProvider ITransformProvider `field:"optional" json:"transformProvider" yaml:"transformProvider"`
 }
 

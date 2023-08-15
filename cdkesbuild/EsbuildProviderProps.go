@@ -21,6 +21,8 @@ type EsbuildProviderProps struct {
 	//    To opt-out of this behavior, set either `esbuildModulePath` or `CDK_ESBUILD_MODULE_PATH` env variable.
 	//
 	// Use the static methods on `EsbuildSource` to customize the default behavior.
+	// Default: - `CDK_ESBUILD_MODULE_PATH` or package resolution (see description).
+	//
 	EsbuildModulePath *string `field:"optional" json:"esbuildModulePath" yaml:"esbuildModulePath"`
 }
 
