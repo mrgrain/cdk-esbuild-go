@@ -1,4 +1,3 @@
-// CDK constructs for esbuild, an extremely fast JavaScript bundler
 package cdkesbuild
 
 
@@ -21,6 +20,8 @@ type TransformerProps struct {
 	//    The exact algorithm of this mechanism is considered an implementation detail and should not be relied on.
 	//    If `esbuild` cannot be found, it might be installed dynamically to a temporary location.
 	//    To opt-out of this behavior, set either `esbuildModulePath` or `CDK_ESBUILD_MODULE_PATH` env variable.
+	// Default: - `CDK_ESBUILD_MODULE_PATH` or package resolution (see above).
+	//
 	// Experimental.
 	EsbuildModulePath *string `field:"optional" json:"esbuildModulePath" yaml:"esbuildModulePath"`
 	// Escape hatch to provide the bundler with a custom transform function.
@@ -29,6 +30,8 @@ type TransformerProps struct {
 	// Must throw a `TransformFailure` on failure to correctly inform the bundler.
 	//
 	// Returns: esbuild.TransformResult
+	// Default: `esbuild.transformSync`
+	//
 	// Experimental.
 	TransformFn interface{} `field:"optional" json:"transformFn" yaml:"transformFn"`
 	// Transform options passed on to esbuild.

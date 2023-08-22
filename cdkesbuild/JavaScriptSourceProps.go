@@ -1,4 +1,3 @@
-// CDK constructs for esbuild, an extremely fast JavaScript bundler
 package cdkesbuild
 
 
@@ -9,6 +8,8 @@ type JavaScriptSourceProps struct {
 	// Must throw a `BuildFailure` on failure to correctly inform the bundler.
 	//
 	// Returns: esbuild.BuildResult
+	// Default: `esbuild.buildSync`
+	//
 	// Experimental.
 	BuildFn interface{} `field:"optional" json:"buildFn" yaml:"buildFn"`
 	// Build options passed on to esbuild. Please refer to the esbuild Build API docs for details.
@@ -61,6 +62,8 @@ type JavaScriptSourceProps struct {
 	//    The exact algorithm of this mechanism is considered an implementation detail and should not be relied on.
 	//    If `esbuild` cannot be found, it might be installed dynamically to a temporary location.
 	//    To opt-out of this behavior, set either `esbuildModulePath` or `CDK_ESBUILD_MODULE_PATH` env variable.
+	// Default: - `CDK_ESBUILD_MODULE_PATH` or package resolution (see above).
+	//
 	// Experimental.
 	EsbuildModulePath *string `field:"optional" json:"esbuildModulePath" yaml:"esbuildModulePath"`
 	// A hash of this asset, which is available at construction time.
