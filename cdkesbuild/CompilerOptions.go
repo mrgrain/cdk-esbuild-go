@@ -3,7 +3,7 @@ package cdkesbuild
 
 type CompilerOptions struct {
 	AlwaysStrict *bool `field:"optional" json:"alwaysStrict" yaml:"alwaysStrict"`
-	BaseUrl *bool `field:"optional" json:"baseUrl" yaml:"baseUrl"`
+	BaseUrl *string `field:"optional" json:"baseUrl" yaml:"baseUrl"`
 	ExperimentalDecorators *bool `field:"optional" json:"experimentalDecorators" yaml:"experimentalDecorators"`
 	ImportsNotUsedAsValues *string `field:"optional" json:"importsNotUsedAsValues" yaml:"importsNotUsedAsValues"`
 	Jsx *string `field:"optional" json:"jsx" yaml:"jsx"`
