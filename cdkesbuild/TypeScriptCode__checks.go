@@ -35,14 +35,6 @@ func (t *jsiiProxy_TypeScriptCode) validateBindToResourceParameters(resource aws
 	return nil
 }
 
-func (t *jsiiProxy_TypeScriptCode) validateGetAssetParameters(scope constructs.Construct) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateTypeScriptCode_FromAssetParameters(path *string, options *awss3assets.AssetOptions) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")
@@ -119,28 +111,9 @@ func validateTypeScriptCode_FromInlineParameters(code *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_TypeScriptCode) validateSetAssetParameters(val EsbuildAsset) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_TypeScriptCode) validateSetIsInlineParameters(val *bool) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_TypeScriptCode) validateSetPropsParameters(val *AssetProps) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-		return err
 	}
 
 	return nil

@@ -2,7 +2,7 @@ package cdkesbuild
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v4/jsii"
+	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v5/jsii"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
@@ -10,71 +10,29 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v5/internal"
 )
 
 // Represents the deployed TypeScript Code.
 type TypeScriptCode interface {
-	EsbuildCode
-	// Experimental.
-	Asset() EsbuildAsset
-	// Experimental.
-	SetAsset(val EsbuildAsset)
-	// A path or list or map of paths to the entry points of your code.
-	//
-	// Relative paths are by default resolved from the current working directory.
-	// To change the working directory, see `buildOptions.absWorkingDir`.
-	//
-	// Absolute paths can be used if files are part of the working directory.
-	//
-	// Examples:
-	//   - `'src/index.ts'`
-	//   - `require.resolve('./lambda')`
-	//   - `['src/index.ts', 'src/util.ts']`
-	//   - `{one: 'src/two.ts', two: 'src/one.ts'}`
-	EntryPoints() interface{}
+	awslambda.Code
 	// Determines whether this Code is inline code or not.
 	// Deprecated: this value is ignored since inline is now determined based on the the inlineCode field of CodeConfig returned from bind().
 	IsInline() *bool
 	// Deprecated: this value is ignored since inline is now determined based on the the inlineCode field of CodeConfig returned from bind().
 	SetIsInline(val *bool)
-	// Experimental.
-	Props() *AssetProps
-	// Experimental.
-	SetProps(val *AssetProps)
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-	// Experimental.
 	Bind(scope constructs.Construct) *awslambda.CodeConfig
 	// Called after the CFN function resource has been created to allow the code class to bind to it.
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
 	BindToResource(resource awscdk.CfnResource, options *awslambda.ResourceBindOptions)
-	GetAsset(scope constructs.Construct) EsbuildAsset
 }
 
 // The jsii proxy struct for TypeScriptCode
 type jsiiProxy_TypeScriptCode struct {
-	jsiiProxy_EsbuildCode
-}
-
-func (j *jsiiProxy_TypeScriptCode) Asset() EsbuildAsset {
-	var returns EsbuildAsset
-	_jsii_.Get(
-		j,
-		"asset",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TypeScriptCode) EntryPoints() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"entryPoints",
-		&returns,
-	)
-	return returns
+	internal.Type__awslambdaCode
 }
 
 func (j *jsiiProxy_TypeScriptCode) IsInline() *bool {
@@ -82,16 +40,6 @@ func (j *jsiiProxy_TypeScriptCode) IsInline() *bool {
 	_jsii_.Get(
 		j,
 		"isInline",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TypeScriptCode) Props() *AssetProps {
-	var returns *AssetProps
-	_jsii_.Get(
-		j,
-		"props",
 		&returns,
 	)
 	return returns
@@ -125,17 +73,6 @@ func NewTypeScriptCode_Override(t TypeScriptCode, entryPoints interface{}, props
 	)
 }
 
-func (j *jsiiProxy_TypeScriptCode)SetAsset(val EsbuildAsset) {
-	if err := j.validateSetAssetParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"asset",
-		val,
-	)
-}
-
 func (j *jsiiProxy_TypeScriptCode)SetIsInline(val *bool) {
 	if err := j.validateSetIsInlineParameters(val); err != nil {
 		panic(err)
@@ -143,17 +80,6 @@ func (j *jsiiProxy_TypeScriptCode)SetIsInline(val *bool) {
 	_jsii_.Set(
 		j,
 		"isInline",
-		val,
-	)
-}
-
-func (j *jsiiProxy_TypeScriptCode)SetProps(val *AssetProps) {
-	if err := j.validateSetPropsParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"props",
 		val,
 	)
 }
@@ -323,21 +249,5 @@ func (t *jsiiProxy_TypeScriptCode) BindToResource(resource awscdk.CfnResource, o
 		"bindToResource",
 		[]interface{}{resource, options},
 	)
-}
-
-func (t *jsiiProxy_TypeScriptCode) GetAsset(scope constructs.Construct) EsbuildAsset {
-	if err := t.validateGetAssetParameters(scope); err != nil {
-		panic(err)
-	}
-	var returns EsbuildAsset
-
-	_jsii_.Invoke(
-		t,
-		"getAsset",
-		[]interface{}{scope},
-		&returns,
-	)
-
-	return returns
 }
 

@@ -16,7 +16,7 @@ func validateTypeScriptAsset_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewTypeScriptAssetParameters(scope constructs.Construct, id *string, props *AssetProps) error {
+func validateNewTypeScriptAssetParameters(scope constructs.Construct, id *string, props *TypeScriptAssetProps) error {
 	return nil
 }
 

@@ -2,19 +2,21 @@ package cdkesbuild
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v4/jsii"
+	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v5/jsii"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v5/internal"
 )
 
 // Bundles the entry points and creates a CDK asset which is uploaded to the bootstrapped CDK S3 bucket during deployment.
 //
 // The asset can be used by other constructs.
 type TypeScriptAsset interface {
-	EsbuildAsset
+	awss3assets.Asset
 	// A hash of this asset, which is available at construction time.
 	//
 	// As this is a plain string, it
@@ -71,7 +73,7 @@ type TypeScriptAsset interface {
 
 // The jsii proxy struct for TypeScriptAsset
 type jsiiProxy_TypeScriptAsset struct {
-	jsiiProxy_EsbuildAsset
+	internal.Type__awss3assetsAsset
 }
 
 func (j *jsiiProxy_TypeScriptAsset) AssetHash() *string {
@@ -175,7 +177,7 @@ func (j *jsiiProxy_TypeScriptAsset) S3ObjectUrl() *string {
 }
 
 
-func NewTypeScriptAsset(scope constructs.Construct, id *string, props *AssetProps) TypeScriptAsset {
+func NewTypeScriptAsset(scope constructs.Construct, id *string, props *TypeScriptAssetProps) TypeScriptAsset {
 	_init_.Initialize()
 
 	if err := validateNewTypeScriptAssetParameters(scope, id, props); err != nil {
@@ -192,7 +194,7 @@ func NewTypeScriptAsset(scope constructs.Construct, id *string, props *AssetProp
 	return &j
 }
 
-func NewTypeScriptAsset_Override(t TypeScriptAsset, scope constructs.Construct, id *string, props *AssetProps) {
+func NewTypeScriptAsset_Override(t TypeScriptAsset, scope constructs.Construct, id *string, props *TypeScriptAssetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

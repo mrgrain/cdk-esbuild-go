@@ -23,43 +23,6 @@ func (t *jsiiProxy_TypeScriptSource) validateBindParameters(scope constructs.Con
 	return nil
 }
 
-func (j *jsiiProxy_TypeScriptSource) validateSetAssetParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-	switch val.(type) {
-	case JavaScriptAsset:
-		// ok
-	case TypeScriptAsset:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: JavaScriptAsset, TypeScriptAsset; received %#v (a %T)", val, val)
-		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_TypeScriptSource) validateSetAssetClassParameters(val TypeScriptAsset) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_TypeScriptSource) validateSetPropsParameters(val *AssetProps) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func validateNewTypeScriptSourceParameters(entryPoints interface{}, props *TypeScriptSourceProps) error {
 	if entryPoints == nil {
 		return fmt.Errorf("parameter entryPoints is required, but nil was provided")

@@ -1,7 +1,7 @@
 package cdkesbuild
 
 
-type TsconfigOptions struct {
+type TsconfigRaw struct {
 	CompilerOptions *CompilerOptions `field:"optional" json:"compilerOptions" yaml:"compilerOptions"`
 }
 

@@ -8,18 +8,6 @@ func (t *jsiiProxy_TypeScriptSource) validateBindParameters(scope constructs.Con
 	return nil
 }
 
-func (j *jsiiProxy_TypeScriptSource) validateSetAssetParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_TypeScriptSource) validateSetAssetClassParameters(val TypeScriptAsset) error {
-	return nil
-}
-
-func (j *jsiiProxy_TypeScriptSource) validateSetPropsParameters(val *AssetProps) error {
-	return nil
-}
-
 func validateNewTypeScriptSourceParameters(entryPoints interface{}, props *TypeScriptSourceProps) error {
 	return nil
 }

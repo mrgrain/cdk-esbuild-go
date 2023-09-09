@@ -16,9 +16,9 @@ type EsbuildProviderProps struct {
 	// - Use a path from the `CDK_ESBUILD_MODULE_PATH` environment variable
 	// - In TypeScript, fallback to the default Node.js package resolution mechanism
 	// - All other languages (Python, Go, .NET, Java) use an automatic "best effort" resolution mechanism. \
-	//    The exact algorithm of this mechanism is considered an implementation detail and should not be relied on.
-	//    If `esbuild` cannot be found, it might be installed dynamically to a temporary location.
-	//    To opt-out of this behavior, set either `esbuildModulePath` or `CDK_ESBUILD_MODULE_PATH` env variable.
+	//   The exact algorithm of this mechanism is considered an implementation detail and should not be relied on.
+	//   If `esbuild` cannot be found, it might be installed dynamically to a temporary location.
+	//   To opt-out of this behavior, set either `esbuildModulePath` or `CDK_ESBUILD_MODULE_PATH` env variable.
 	//
 	// Use the static methods on `EsbuildSource` to customize the default behavior.
 	// Default: - `CDK_ESBUILD_MODULE_PATH` or package resolution (see description).

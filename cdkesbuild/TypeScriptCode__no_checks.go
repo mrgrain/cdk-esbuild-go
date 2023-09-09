@@ -12,10 +12,6 @@ func (t *jsiiProxy_TypeScriptCode) validateBindToResourceParameters(resource aws
 	return nil
 }
 
-func (t *jsiiProxy_TypeScriptCode) validateGetAssetParameters(scope constructs.Construct) error {
-	return nil
-}
-
 func validateTypeScriptCode_FromAssetParameters(path *string, options *awss3assets.AssetOptions) error {
 	return nil
 }
@@ -44,15 +40,7 @@ func validateTypeScriptCode_FromInlineParameters(code *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_TypeScriptCode) validateSetAssetParameters(val EsbuildAsset) error {
-	return nil
-}
-
 func (j *jsiiProxy_TypeScriptCode) validateSetIsInlineParameters(val *bool) error {
-	return nil
-}
-
-func (j *jsiiProxy_TypeScriptCode) validateSetPropsParameters(val *AssetProps) error {
 	return nil
 }
 

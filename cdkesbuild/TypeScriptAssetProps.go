@@ -1,7 +1,7 @@
 package cdkesbuild
 
 
-type JavaScriptSourceProps struct {
+type TypeScriptAssetProps struct {
 	// Build options passed on to esbuild. Please refer to the esbuild Build API docs for details.
 	//
 	// * `buildOptions.outdir: string`
@@ -48,5 +48,18 @@ type JavaScriptSourceProps struct {
 	//
 	// Defaults to a hash of all files in the resulting bundle.
 	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
+	// A path or list or map of paths to the entry points of your code.
+	//
+	// Relative paths are by default resolved from the current working directory.
+	// To change the working directory, see `buildOptions.absWorkingDir`.
+	//
+	// Absolute paths can be used if files are part of the working directory.
+	//
+	// Examples:
+	//  - `'src/index.ts'`
+	//  - `require.resolve('./lambda')`
+	//  - `['src/index.ts', 'src/util.ts']`
+	//  - `{one: 'src/two.ts', two: 'src/one.ts'}`
+	EntryPoints interface{} `field:"required" json:"entryPoints" yaml:"entryPoints"`
 }
 

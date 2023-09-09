@@ -2,7 +2,7 @@ package cdkesbuild
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v4/jsii"
+	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v5/jsii"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
@@ -10,13 +10,12 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 	"github.com/aws/constructs-go/constructs/v10"
-	"github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v4/internal"
+	"github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v5/internal"
 )
 
 // An implementation of `lambda.InlineCode` using the esbuild Transform API. Inline function code is limited to 4 KiB after transformation.
 type InlineJavaScriptCode interface {
 	awslambda.InlineCode
-	// Determines whether this Code is inline code or not.
 	IsInline() *bool
 	// Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
 	Bind(scope constructs.Construct) *awslambda.CodeConfig

@@ -40,7 +40,7 @@ func validateTypeScriptAsset_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func validateNewTypeScriptAssetParameters(scope constructs.Construct, id *string, props *AssetProps) error {
+func validateNewTypeScriptAssetParameters(scope constructs.Construct, id *string, props *TypeScriptAssetProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

@@ -2,7 +2,7 @@ package cdkesbuild
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v4/jsii"
+	_init_ "github.com/mrgrain/cdk-esbuild-go/cdkesbuild/v5/jsii"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
@@ -20,10 +20,10 @@ type EsbuildBundler interface {
 	// Absolute paths can be used if files are part of the working directory.
 	//
 	// Examples:
-	//   - `'src/index.ts'`
-	//   - `require.resolve('./lambda')`
-	//   - `['src/index.ts', 'src/util.ts']`
-	//   - `{one: 'src/two.ts', two: 'src/one.ts'}`
+	//  - `'src/index.ts'`
+	//  - `require.resolve('./lambda')`
+	//  - `['src/index.ts', 'src/util.ts']`
+	//  - `{one: 'src/two.ts', two: 'src/one.ts'}`
 	// Experimental.
 	EntryPoints() interface{}
 	// Deprecated: This value is ignored since the bundler is always using a locally installed version of esbuild. However the property is required to comply with the `BundlingOptions` interface.
