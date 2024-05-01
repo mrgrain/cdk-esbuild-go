@@ -86,10 +86,6 @@ s3deploy.NewBucketDeployment(stack, jsii.String("DeployWebsite"), &BucketDeploym
 
 Synthetics runs a canary to produce traffic to an application for monitoring purposes. Use `TypeScriptCode` as the `code` of a Canary test:
 
-> ℹ️ This feature depends on `@aws-cdk/aws-synthetics-alpha` which is in developer preview.
-> Please install the package using the respective tool of your language.
-> You may need to update your source code when upgrading to a newer version of this alpha package.
-
 ```go
 bundledCode := cdkesbuild.NewTypeScriptCode(jsii.String("src/canary.ts"), &TypeScriptCodeProps{
 	BuildOptions: &buildOptions{
