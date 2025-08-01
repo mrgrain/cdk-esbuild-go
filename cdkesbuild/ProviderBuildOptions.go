@@ -2,6 +2,8 @@ package cdkesbuild
 
 
 type ProviderBuildOptions struct {
+	// Documentation: https://esbuild.github.io/api/#abs-paths.
+	AbsPaths *[]*string `field:"optional" json:"absPaths" yaml:"absPaths"`
 	// Documentation: https://esbuild.github.io/api/#working-directory.
 	AbsWorkingDir *string `field:"optional" json:"absWorkingDir" yaml:"absWorkingDir"`
 	// Documentation: https://esbuild.github.io/api/#alias.

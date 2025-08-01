@@ -2,6 +2,8 @@ package cdkesbuild
 
 
 type TransformOptions struct {
+	// Documentation: https://esbuild.github.io/api/#abs-paths.
+	AbsPaths *[]*string `field:"optional" json:"absPaths" yaml:"absPaths"`
 	// Documentation: https://esbuild.github.io/api/#banner.
 	Banner *string `field:"optional" json:"banner" yaml:"banner"`
 	// Documentation: https://esbuild.github.io/api/#charset.
