@@ -17,6 +17,32 @@ func init() {
 		reflect.TypeOf((*BundlerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@mrgrain/cdk-esbuild.CloudFrontFunctionCodeProps",
+		reflect.TypeOf((*CloudFrontFunctionCodeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@mrgrain/cdk-esbuild.CloudFrontFunctionInlineCodeProps",
+		reflect.TypeOf((*CloudFrontFunctionInlineCodeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@mrgrain/cdk-esbuild.CloudFrontFunctionRuntime",
+		reflect.TypeOf((*CloudFrontFunctionRuntime)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CloudFrontFunctionRuntime{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@mrgrain/cdk-esbuild.CloudFrontTypeScriptCode",
+		reflect.TypeOf((*CloudFrontTypeScriptCode)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CloudFrontTypeScriptCode{}
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@mrgrain/cdk-esbuild.CodeConfig",
 		reflect.TypeOf((*CodeConfig)(nil)).Elem(),
 	)
