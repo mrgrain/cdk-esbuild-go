@@ -23,12 +23,12 @@ func (t *jsiiProxy_TypeScriptCode) validateBindParameters(scope constructs.Const
 	return nil
 }
 
-func (t *jsiiProxy_TypeScriptCode) validateBindToResourceParameters(resource awscdk.CfnResource, options *awslambda.ResourceBindOptions) error {
-	if resource == nil {
-		return fmt.Errorf("parameter resource is required, but nil was provided")
+func (t *jsiiProxy_TypeScriptCode) validateBindToResourceParameters(_resource awscdk.CfnResource, _options *awslambda.ResourceBindOptions) error {
+	if _resource == nil {
+		return fmt.Errorf("parameter _resource is required, but nil was provided")
 	}
 
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+	if err := _jsii_.ValidateStruct(_options, func() string { return "parameter _options" }); err != nil {
 		return err
 	}
 

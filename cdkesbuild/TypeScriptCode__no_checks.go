@@ -8,7 +8,7 @@ func (t *jsiiProxy_TypeScriptCode) validateBindParameters(scope constructs.Const
 	return nil
 }
 
-func (t *jsiiProxy_TypeScriptCode) validateBindToResourceParameters(resource awscdk.CfnResource, options *awslambda.ResourceBindOptions) error {
+func (t *jsiiProxy_TypeScriptCode) validateBindToResourceParameters(_resource awscdk.CfnResource, _options *awslambda.ResourceBindOptions) error {
 	return nil
 }
 

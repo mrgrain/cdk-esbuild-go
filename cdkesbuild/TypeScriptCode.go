@@ -27,7 +27,7 @@ type TypeScriptCode interface {
 	//
 	// Specifically it's required to allow assets to add
 	// metadata for tooling like SAM CLI to be able to find their origins.
-	BindToResource(resource awscdk.CfnResource, options *awslambda.ResourceBindOptions)
+	BindToResource(_resource awscdk.CfnResource, _options *awslambda.ResourceBindOptions)
 }
 
 // The jsii proxy struct for TypeScriptCode
@@ -240,14 +240,14 @@ func (t *jsiiProxy_TypeScriptCode) Bind(scope constructs.Construct) *awslambda.C
 	return returns
 }
 
-func (t *jsiiProxy_TypeScriptCode) BindToResource(resource awscdk.CfnResource, options *awslambda.ResourceBindOptions) {
-	if err := t.validateBindToResourceParameters(resource, options); err != nil {
+func (t *jsiiProxy_TypeScriptCode) BindToResource(_resource awscdk.CfnResource, _options *awslambda.ResourceBindOptions) {
+	if err := t.validateBindToResourceParameters(_resource, _options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		t,
 		"bindToResource",
-		[]interface{}{resource, options},
+		[]interface{}{_resource, _options},
 	)
 }
 
